@@ -21,7 +21,7 @@
                     Sign In? <a href="">Login</a>
                 </div>
                 <div class="signup-link">
-                    Join now? <a href="">Registration</a>
+                    Join now? <a href="{{ url('registration') }}">Registration</a>
                 </div>
             </form>
         </div>
