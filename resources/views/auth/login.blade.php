@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Registration </title>
+    <title>Login</title>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
 </head>
@@ -14,14 +14,9 @@
     <div class="container">
         <div class="wrapper">
             <div class="title">
-                <span>Registration Page</span>
+                <span>Login Page</span>
             </div>
             <form action="">
-                <div class="row">
-                    <i class="fas fa-user"></i>
-                    <input type="text" name="" placeholder="Username" required>
-                </div>
-
                 <div class="row">
                     <i class="fas fa-user"></i>
                     <input type="email" name="" placeholder="Email" required>
@@ -32,33 +27,19 @@
                     <input type="password" name="" placeholder="Password" required>
                 </div>
 
-                <div class="row">
-                    <i class="fas fa-lock"></i>
-                    <input type="password" name="" placeholder="Confirm Password" required>
-                </div>
-
-                <div class="row">
-                    <select name="" id="" class="selectbox" required>
-                        <option value="">Select Role</option>
-                        <option value="2">Super Admin</option>
-                        <option value="1">Admin</option>
-                        <option value="0">User</option>
-                    </select>
-                </div>
-
                 <div class="pass">
-                    <a href="{{ url('forgot')}}">Forgot Password</a>
+                    <a href="{{ url('forgot') }}">Forgot Password</a>
                 </div>
                 <div class="row button">
-                    <input type="submit" value="Registration">
+                    <input type="submit" value="Login">
                 </div>
 
                 <div class="signup-link">
-                    Sign In? <a href="{{ url('login') }}">Login</a>
+                    Join now? <a href="{{ url('registration') }}">Registration</a>
                 </div>
 
                 <div class="signup-link">
-                    Welcome Page? <a href="{{ url('/')}}">Welcome Page</a>
+                    Welcome Page? <a href="{{ url('/') }}">Welcome Page</a>
                 </div>
             </form>
         </div>
