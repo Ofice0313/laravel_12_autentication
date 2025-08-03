@@ -1,6 +1,7 @@
 @extends('layouts/app')
 @section('content')
     <div class="container">
+        @include('_message')
         <div class="wrapper">
             <div class="title">
                 <span>Login Page</span>
