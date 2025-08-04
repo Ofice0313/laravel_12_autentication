@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
 class AuthController extends Controller
 {
     public function registration(){
@@ -36,6 +37,29 @@ class AuthController extends Controller
     public function login(){
         $data['meta_title'] = 'Login';
         return view('auth.login', $data);
+    }
+
+    public function login_post(Request $request){
+
+        //dd($request->all());
+        if(Auth::attempt(['email' => $request->email, 'password' => $request->password], true))
+        {
+            if(Auth::User()->is_role == "2")
+            {
+                echo "Super Admin";die();
+            }else if(Auth::User()->is_role == "1")
+            {
+                echo "Admin";die();
+            }else if(Auth::User()->is_role == "0")
+            {
+                echo "User";die();
+            }else
+            {
+                return redirect('login')->with('error', "No Avaibles Email... Please Check");
+            }
+        }else{
+            return redirect()->back()->with('error', 'Please enter the correct credentials');
+        }
     }
 
     public function forgot(){
