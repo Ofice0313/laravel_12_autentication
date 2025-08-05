@@ -46,13 +46,13 @@ class AuthController extends Controller
         {
             if(Auth::User()->is_role == "2")
             {
-                echo "Super Admin";die();
+                return redirect()->intended('superadmin/dashboard');
             }else if(Auth::User()->is_role == "1")
             {
-                echo "Admin";die();
+                return redirect()->intended('admin/dashboard');
             }else if(Auth::User()->is_role == "0")
             {
-                echo "User";die();
+                return redirect()->intended('user/dashboard');
             }else
             {
                 return redirect('login')->with('error', "No Avaibles Email... Please Check");
@@ -65,5 +65,11 @@ class AuthController extends Controller
     public function forgot(){
         $data['meta_title'] = 'Forgot';
         return view('auth.forgot', $data);
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect(url('/'));
     }
 }
